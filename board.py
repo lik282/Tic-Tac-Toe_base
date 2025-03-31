@@ -17,6 +17,15 @@ def display_board(board):
     C   0 | X | . 
        --+---+---
   """
+
+
+  print("        1   2   3")
+  print("    A   X | O | . ")
+  print("       ---+---+---")
+  print("    B   X | O | .")
+  print("        --+---+---")
+  print("    C   0 | X | . ")
+  print("        --+---+---")
   pass
 
 
