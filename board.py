@@ -28,6 +28,7 @@ def display_board(board):
   print("        --+---+---")
   pass
 
+display_board()
 
 def is_board_full(board):
   """
