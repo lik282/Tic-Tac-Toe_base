@@ -3,7 +3,10 @@ def get_empty_board():
     Should return a list with 3 sublists.
     Each sublist should contain 3 time the "." character
     '''
-    pass
+    return [[' ', ' ', ' '],
+          [' ', ' ', ' '],
+          [' ', ' ', ' ']]
+
 
 
 def display_board(board):
@@ -19,16 +22,14 @@ def display_board(board):
   """
 
 
-  print("        1   2   3")
-  print("    A   X | O | . ")
-  print("       ---+---+---")
-  print("    B   X | O | .")
-  print("        --+---+---")
-  print("    C   0 | X | . ")
-  print("        --+---+---")
-  pass
+  print("    1   2   3")
+  for i, sor in enumerate(board):
+        sorszam = chr(ord('A') + i)  # A, B, C sorok
+        print(f"  {sorszam}  {sor[0]} | {sor[1]} | {sor[2]}")
+        if i < 2:
+            print("    ---+---+---")
 
-display_board()
+
 
 def is_board_full(board):
   """
