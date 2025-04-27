@@ -3,11 +3,10 @@ def get_empty_board():
     Should return a list with 3 sublists.
     Each sublist should contain 3 time the "." character
     '''
-    return [[' ', ' ', ' '],
-          [' ', ' ', ' '],
-          [' ', ' ', ' ']]
-
-
+    
+    return [['.', '.', '.'],
+            ['.', '.', '.'],
+            ['.', '.', '.']]
 
 def display_board(board):
   """
@@ -21,22 +20,26 @@ def display_board(board):
        --+---+---
   """
 
-
   print("    1   2   3")
-  for i, sor in enumerate(board):
-        sorszam = chr(ord('A') + i)  # A, B, C sorok
-        print(f"  {sorszam}  {sor[0]} | {sor[1]} | {sor[2]}")
+  row_labels = ['A', 'B', 'C']
+    
+  for i, row in enumerate(board):
+       
+        print(f" {row_labels[i]}  {row[0]} | {row[1]} | {row[2]}")
+        
+        
         if i < 2:
-            print("    ---+---+---")
-
-
+            print("   ---+---+---")
 
 def is_board_full(board):
   """
   should return True if there are no more empty place on the board,
   otherwise should return False
   """
-  pass
+  for row in board:
+        if '.' in row:
+            return False
+  return True
 
 
 def get_winning_player(board):
@@ -44,8 +47,19 @@ def get_winning_player(board):
   Should return the player that wins based on the tic tac toe rules.
   If no player has won, than "None" is returned.
   """
-  pass
+ 
+  for i in range(3):
+        if board[i][0] == board[i][1] == board[i][2] != '.':
+            return board[i][0]
+        if board[0][i] == board[1][i] == board[2][i] != '.':
+            return board[0][i]
+    
+  if board[0][0] == board[1][1] == board[2][2] != '.':
+        return board[0][0]
+  if board[0][2] == board[1][1] == board[2][0] != '.':
+        return board[0][2]
 
+  return None
 
 # run this file to test whether you have correctly implemented the functions
 if __name__ == "__main__":
@@ -54,7 +68,7 @@ if __name__ == "__main__":
 
     board = [
       ['X', "O", "."],
-      ['X', "O", "."]
+      ['X', "O", "."],
       ['0', "X", "."]
     ]
     print("""
@@ -117,3 +131,4 @@ if __name__ == "__main__":
     ]
     print("Should return None")
     print(get_winning_player(board_6))
+

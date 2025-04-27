@@ -10,7 +10,24 @@ def get_menu_option():
   If the user will enter invalid data (for example 5), than a message will appear
   asking to input a new value.
   '''
-  pass
+  options = [
+        "1. Human vs Human",
+        "2. Random AI vs Random AI",
+        "3. Human vs Random AI",
+        "4. Human vs Unbeatable AI"
+    ]
+
+  while True:
+        print("\nSelect a game mode:")
+        for option in options:
+            print(option)
+
+        choice = input("Enter your choice (1-4): ").strip()
+
+        if choice in {'1', '2', '3', '4'}:
+            return int(choice)
+        else:
+            print("Invalid option. Please enter a number between 1 and 4.")
 
 
 if __name__ == "__main__":
